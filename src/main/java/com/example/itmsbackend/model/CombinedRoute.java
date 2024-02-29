@@ -16,7 +16,7 @@ public class CombinedRoute {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String start;
-    private String end;
+    private String startRoute;
+    private String endCommunalTransport;
 
 }
