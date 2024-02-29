@@ -80,5 +80,10 @@ public class RouteService {
         return combinedRouteRepository.save(combinedRoute);
     }
 
+    public List<CombinedRoute> getAllCombinedRoutes() {
+        return combinedRouteRepository.findAll();
+
+    }
+
 
 }
