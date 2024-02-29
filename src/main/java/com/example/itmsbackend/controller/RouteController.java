@@ -126,7 +126,7 @@ public class RouteController {
     }
 
 
-    @PostMapping("/{routeId}/commonRoute/{communalTransportDtoId}")
+    @PostMapping("/{routeId}/combinedRoute/{communalTransportDtoId}")
     public CombinedRoute createCommonRoute(@PathVariable Long communalTransportDtoId, @PathVariable Long routeId) {
         return routeService.createCombinedRoute(communalTransportDtoId, routeId);
     }
