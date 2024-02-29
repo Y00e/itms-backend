@@ -1,5 +1,6 @@
 package com.example.itmsbackend.controller;
 
+import com.example.itmsbackend.model.CombinedRoute;
 import com.example.itmsbackend.model.FavoriteRoute;
 import com.example.itmsbackend.model.Route;
 import com.example.itmsbackend.model.User;
@@ -125,8 +126,10 @@ public class RouteController {
     }
 
 
-
-
+    @PostMapping("/{routeId}/commonRoute/{communalTransportDtoId}")
+    public CombinedRoute createCommonRoute(@PathVariable Long communalTransportDtoId, @PathVariable Long routeId) {
+        return routeService.createCombinedRoute(communalTransportDtoId, routeId);
+    }
 
 
 }
