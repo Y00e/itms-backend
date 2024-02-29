@@ -131,5 +131,18 @@ public class RouteController {
         return routeService.createCombinedRoute(communalTransportDtoId, routeId);
     }
 
+    @GetMapping("/combinedRoutes")
+    public ResponseEntity <List<CombinedRoute>> getAllCombinedRoutes() {
+        List<CombinedRoute> combinedRoutes = routeService.getAllCombinedRoutes();
+
+        if (combinedRoutes != null && !combinedRoutes.isEmpty()) {
+            return ResponseEntity.status(200).body(combinedRoutes);
+        } else {
+            return ResponseEntity.status(204).build();
+        }
+
+    }
+
+
 
 }
