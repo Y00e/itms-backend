@@ -1,5 +1,6 @@
 package com.example.itmsbackend.controller;
 
+import com.example.itmsbackend.model.CombinedRoute;
 import com.example.itmsbackend.model.FavoriteRoute;
 import com.example.itmsbackend.model.Route;
 import com.example.itmsbackend.service.RouteService;
@@ -109,6 +110,22 @@ public class RouteController {
     }
 
 
+    @PostMapping("/{routeId}/combinedRoute/{communalTransportDtoId}")
+    public CombinedRoute createCombinedRoute(@PathVariable Long communalTransportDtoId, @PathVariable Long routeId) {
+        return routeService.createCombinedRoute(communalTransportDtoId, routeId);
+    }
+
+    @GetMapping("/combinedRoutes")
+    public ResponseEntity <List<CombinedRoute>> getAllCombinedRoutes() {
+        List<CombinedRoute> combinedRoutes = routeService.getAllCombinedRoutes();
+
+        if (combinedRoutes != null && !combinedRoutes.isEmpty()) {
+            return ResponseEntity.status(200).body(combinedRoutes);
+        } else {
+            return ResponseEntity.status(204).build();
+        }
+
+    }
 
 
 
